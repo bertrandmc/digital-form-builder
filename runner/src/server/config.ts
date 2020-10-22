@@ -3,6 +3,7 @@ import Joi from "joi";
 
 dotEnv.config({ path: ".env" });
 
+
 export type ENV = "development" | "test" | "production";
 export type LogLevel = "trace" | "debug" | "info" | "warn" | "error";
 export interface ConfigSchema {
@@ -131,6 +132,12 @@ if (result.error) {
 
 // Use the Joi validated value
 const value: ConfigSchema = result.value;
+
+console.log(config)
+console.log(typeof config.previewMode)
+console.log(typeof config.sessionTimeout)
+console.log(typeof config.sessionTimeout)
+console.log(value)
 
 value.isProd = value.env === "production";
 value.isDev = !value.isProd;
